@@ -24,7 +24,7 @@ namespace Demoqua_Automation_testing_Selenium.Test
             driver.Navigate().GoToUrl("http://demoqa.com/");
         }
 
-        [Test]
+        //[Test]
         public void VerifySlider()
         {
             string oldPosition = sliderPage.Position(driver);
