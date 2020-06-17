@@ -12,32 +12,34 @@ namespace Demoqua_Automation_testing_Selenium.Test
     {
         PageHelper.CheckBoxRadioPage checkBoxAndRadio;
         IWebDriver driver;
+        PageHelper.HomePage homePage;
         public CheckboxAndRadioButtonTestSuit()
         {
             driver = new Amazon_Automation_testing_Selenium.GenericHelper.SeleniumSetMethod().GetDriver();
             checkBoxAndRadio = new PageHelper.CheckBoxRadioPage();
+            homePage = new PageHelper.HomePage();
         }
 
         [SetUp]
         public void Initialize()
         {
             //Navigate to Amazon page
-            driver.Navigate().GoToUrl("https://demoqa.com/");
+            driver.Navigate().GoToUrl("http://demoqa.com/");
         }
 
         [Test]
         public void VerifyCheckBox()
         {
             checkBoxAndRadio.CheckBoxRadioFromHeader(driver);
-            var oldColourCheckBox1 = checkBoxAndRadio.GetCheckboxColour(driver,"Button 1");
-            var oldColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 2");
-            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
-            var oldColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 4");
-            checkBoxAndRadio.Checkbox(driver,"Button 3");
-            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 1");
-            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 2");
-            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
-            var newColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 4");
+            var oldColourCheckBox1 = checkBoxAndRadio.GetCheckboxColour(driver, "Button 1");
+            var oldColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 2");
+            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
+            var oldColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 4");
+            checkBoxAndRadio.Checkbox(driver, "Button 3");
+            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 1");
+            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 2");
+            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
+            var newColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 4");
             Assert.AreEqual(oldColourCheckBox1, newColourCheckBox1);
             Assert.AreEqual(oldColourCheckBox2, newColourCheckBox2);
             Assert.AreNotEqual(oldColourCheckBox3, newColourCheckBox3);
@@ -47,16 +49,17 @@ namespace Demoqua_Automation_testing_Selenium.Test
         [Test]
         public void VerifySideBarCheckBox()
         {
+
             checkBoxAndRadio.CheckBoxRadioFromSideBar(driver);
-            var oldColourCheckBox1 = checkBoxAndRadio.GetCheckboxColour(driver,"Button 1");
-            var oldColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 2");
-            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
-            var oldColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 4");
-            checkBoxAndRadio.Checkbox(driver,"Button 3");
-            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 1");
-            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 2");
-            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
-            var newColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 4");
+            var oldColourCheckBox1 = checkBoxAndRadio.GetCheckboxColour(driver, "Button 1");
+            var oldColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 2");
+            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
+            var oldColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 4");
+            checkBoxAndRadio.Checkbox(driver, "Button 3");
+            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 1");
+            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 2");
+            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
+            var newColourCheckBox4 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 4");
             Assert.AreEqual(oldColourCheckBox1, newColourCheckBox1);
             Assert.AreEqual(oldColourCheckBox2, newColourCheckBox2);
             Assert.AreNotEqual(oldColourCheckBox3, newColourCheckBox3);
@@ -68,11 +71,11 @@ namespace Demoqua_Automation_testing_Selenium.Test
         {
             checkBoxAndRadio.CheckBoxRadioFromHeader(driver);
 
-            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
-            checkBoxAndRadio.RadioButton(driver,"Button 3");
-            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 1");
-            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 2");
-            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
+            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
+            checkBoxAndRadio.RadioButton(driver, "Button 3");
+            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 1");
+            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 2");
+            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
             Assert.AreEqual(newColourCheckBox1, newColourCheckBox2);
             Assert.AreNotEqual(newColourCheckBox1, newColourCheckBox3);
             Assert.AreNotEqual(oldColourCheckBox3, newColourCheckBox3);
@@ -82,11 +85,11 @@ namespace Demoqua_Automation_testing_Selenium.Test
         public void VerifySideBarRadio()
         {
             checkBoxAndRadio.CheckBoxRadioFromSideBar(driver);
-            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
-            checkBoxAndRadio.RadioButton(driver,"Button 3");
-            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 1");
-            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 2");
-            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver,"Button 3");
+            var oldColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
+            checkBoxAndRadio.RadioButton(driver, "Button 3");
+            var newColourCheckBox1 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 1");
+            var newColourCheckBox2 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 2");
+            var newColourCheckBox3 = checkBoxAndRadio.GetRadioButtonColour(driver, "Button 3");
             Assert.AreEqual(newColourCheckBox1, newColourCheckBox2);
             Assert.AreNotEqual(newColourCheckBox1, newColourCheckBox3);
             Assert.AreNotEqual(oldColourCheckBox3, newColourCheckBox3);
