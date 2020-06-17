@@ -23,7 +23,7 @@ namespace Demoqua_Automation_testing_Selenium.Test
         public void Initialize()
         {
             //Navigate to Amazon page
-            driver.Navigate().GoToUrl("https://demoqa.com/");
+            driver.Navigate().GoToUrl("http://demoqa.com/");
         }
         [Test]
         public void VerifyDroppable()
